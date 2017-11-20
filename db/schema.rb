@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120150512) do
+ActiveRecord::Schema.define(version: 20171120153635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20171120150512) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_bikes_on_user_id", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.boolean  "is_available"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "amount"
+    t.integer  "bike_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["bike_id"], name: "index_bookings_on_bike_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,4 +59,6 @@ ActiveRecord::Schema.define(version: 20171120150512) do
   end
 
   add_foreign_key "bikes", "users"
+  add_foreign_key "bookings", "bikes"
+  add_foreign_key "bookings", "users"
 end
