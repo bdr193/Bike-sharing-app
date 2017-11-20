@@ -1,2 +1,13 @@
-<h1>Bikes#new</h1>
-<p>Find me in app/views/bikes/new.html.erb</p>
+<div class="container">
+  <%= simple_form_for(@bike) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :city, collection: [ "Berlin", "Tel Aviv", "London", "Brussles"] %>
+  <%= f.input :price_by_day %>
+  <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
+  <%= f.input :photo, as: :attachinary %>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
+  <% end %>
+  <%= link_to("Cancel", bikes_path, class: "btn btn-danger") %>
+</div>
