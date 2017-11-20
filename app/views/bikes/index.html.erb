@@ -1,2 +1,8 @@
-<h1>Bikes#index</h1>
-<p>Find me in app/views/bikes/index.html.erb</p>
+<div class="container">
+  <% @bikes.each do |bike| %>
+  <h2><%= link_to(bike.name, bike_path(bike.id)) %></h2>
+  <h5><%= bike.category.capitalize %></h5>
+  <% end %>
+
+  <%= link_to("Add a new bike", new_bike_path, class: "btn btn-primary") %>
+</div>
