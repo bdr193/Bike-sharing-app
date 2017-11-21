@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Clearing database"
+User.destroy_all
+Bike.destroy_all
+
+puts "Populating DB"
+def create_bike(user)
+  bikes_attributes = [
+    {
+      address: Faker::Address.street_address,
+      city: Faker::Address.city,
+      name: Faker::StarWars.character,
+      price_by_day: (0..100).to_a.sample,
+      category: Faker::Pokemon.move ,
+      user_id: user[0][:id]
+    },
+  ]
+end
+
+def create_user
+  users_attributes = [
+    {
+      email: Faker::Internet.email,
+      password: "greatStephan1"
+    },
+  ]
+end
+
+
+
+puts "Creating users and bikes"
+10.times do
+  user = User.create!(create_user)
+  Bike.create!(create_bike(user))
+end
+
+puts "#{User.all.length} Users created"
+puts "#{Bike.all.length} Bikes created"
+
+puts "Finished"
