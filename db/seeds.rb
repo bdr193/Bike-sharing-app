@@ -20,6 +20,8 @@ def create_bike(user)
       name: Faker::StarWars.character,
       price_by_day: (0..100).to_a.sample,
       category: Faker::Pokemon.move ,
+      start_date: '21-11-2017',
+      end_date: '30-11-2017',
       user_id: user[0][:id]
     },
   ]
@@ -36,6 +38,7 @@ end
 
 
 
+
 puts "Creating users and bikes"
 10.times do
   user = User.create!(create_user)
@@ -44,5 +47,6 @@ end
 
 puts "#{User.all.length} Users created"
 puts "#{Bike.all.length} Bikes created"
+
 
 puts "Finished"
