@@ -15,7 +15,8 @@ def create_bike(user)
   bikes_attributes = [
     {
       address: Faker::Address.street_address,
-      city: Faker::Address.city,
+      # city: Faker::Address.city,
+      city: 'berlin',
       name: Faker::StarWars.character,
       price_by_day: (0..100).to_a.sample,
       category: Faker::Pokemon.move ,

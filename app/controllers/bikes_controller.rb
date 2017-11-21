@@ -3,7 +3,10 @@ class BikesController < ApplicationController
   before_action :find_bike_id, only: [:show, :edit, :destroy, :update]
 
   def index
-    @bikes = Bike.all
+    @city = params[:bike][:city]
+    @city.downcase!
+    @bikes = Bike.all.where(city: @city)
+
   end
 
   def show
