@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Clearing database"
+User.destroy_all
+Bike.destroy_all
+
+puts "Populating DB"
+
 bikes_attributes = [
   {
     address: Faker::Address.street_address,
@@ -32,3 +38,4 @@ end
 Bike.create!(bikes_attributes)
 end
 
+puts "Finished"
