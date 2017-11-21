@@ -11,9 +11,7 @@ User.destroy_all
 Bike.destroy_all
 
 puts "Populating DB"
-
 def create_bike(user)
-  puts user.inspect
   bikes_attributes = [
     {
       address: Faker::Address.street_address,
@@ -29,7 +27,7 @@ end
 def create_user
   users_attributes = [
     {
-      email: "#{Faker::Pokemon.name}@gmail.com" ,
+      email: Faker::Internet.email,
       password: "greatStephan1"
     },
   ]
