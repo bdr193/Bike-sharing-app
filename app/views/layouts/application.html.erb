@@ -12,7 +12,8 @@
 
   <%= render 'layouts/navbar' %>
   <% if alert or notice %>
-  <p class="notice"><%= notice %></p>
+  <%= render 'layouts/messages' %>
+
   <!-- <p class="alert"><%= alert %></p> -->
   <% end %>
   <%= yield %>
