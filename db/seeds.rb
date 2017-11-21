@@ -12,30 +12,38 @@ Bike.destroy_all
 
 puts "Populating DB"
 
-bikes_attributes = [
-  {
-    address: Faker::Address.street_address,
-    city: Faker::Address.city,
-    name: Faker::StarWars.character,
-    price_by_day: (0..100).to_a.sample,
-    category: Faker::Pokemon.move ,
-    user_id: 1
-  },
-        ]
-
-users_attributes = [
-  {
-    email: "#{Faker::Pokemon.name}@gmail.com" ,
-    password: Faker::Team.creature
-  },
-        ]
-
-1.times do
-User.create!(users_attributes)
+def create_bike(user)
+  puts user.inspect
+  bikes_attributes = [
+    {
+      address: Faker::Address.street_address,
+      city: Faker::Address.city,
+      name: Faker::StarWars.character,
+      price_by_day: (0..100).to_a.sample,
+      category: Faker::Pokemon.move ,
+      user_id: user[0][:id]
+    },
+  ]
 end
 
+def create_user
+  users_attributes = [
+    {
+      email: "#{Faker::Pokemon.name}@gmail.com" ,
+      password: "greatStephan1"
+    },
+  ]
+end
+
+
+
+puts "Creating users and bikes"
 10.times do
-Bike.create!(bikes_attributes)
+  user = User.create!(create_user)
+  Bike.create!(create_bike(user))
 end
+
+puts "#{User.all.length} Users created"
+puts "#{Bike.all.length} Bikes created"
 
 puts "Finished"
