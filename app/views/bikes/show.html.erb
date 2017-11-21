@@ -1,0 +1,18 @@
+<div class="container" style="text-align:center;">
+  <h2><%= @bike.name %></h2>
+  <p><%= @bike.description %></p>
+  <p><%= @bike.category %></p>
+  <p><%= @bike.address %></p>
+  <p><%= @bike.city %></p>
+  <p><%= @bike.price_by_day %></p>
+  <% if @bike.photo? %>
+  <%= cl_image_tag @bike.photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to("Edit", edit_bike_path, class: "btn btn-primary") %>
+  <%= link_to("Back", bikes_path, class: "btn btn-primary") %>
+  <%= link_to "Delete", bike_path(@bike), class: "btn btn-primary",
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+</div>
