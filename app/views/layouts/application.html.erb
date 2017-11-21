@@ -9,8 +9,10 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
 <body>
+  <% if alert or notice %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <% end %>
   <%= yield %>
   <%= javascript_include_tag 'application' %>
   <%= cloudinary_js_config %>
