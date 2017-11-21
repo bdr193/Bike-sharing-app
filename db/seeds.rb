@@ -10,8 +10,6 @@ puts "Clearing database"
 User.destroy_all
 Bike.destroy_all
 
-dummy
-
 puts "Populating DB"
 def create_bike(user)
   bikes_attributes = [
