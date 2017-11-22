@@ -10,10 +10,14 @@
   <%= cl_image_tag @bike.photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
   <br>
+  <%= link_to("Book", new_bike_booking_path(@bike), class: "btn btn-primary") %>
   <br>
+
   <%= link_to("Edit", edit_bike_path, class: "btn btn-primary") %>
   <%= link_to("Back", bikes_path, class: "btn btn-primary") %>
   <%= link_to "Delete", bike_path(@bike), class: "btn btn-primary",
   method: :delete,
   data: { confirm: "Are you sure?" } %>
 </div>
+
+
