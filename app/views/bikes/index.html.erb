@@ -1,14 +1,12 @@
 <div class="main-container">
-  <div id="map"></div>
   <div class="card-container">
     <div class="row">
       <% @bikes.each do |bike| %>
-      <div class="col-xs-12 col-md-6 wrapper">
+      <div class="col-xs-12 col-md-6 wrapper"><% link_to bike_path(bike.id) %>
         <div class="card">
           <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
           <div class="card-category"><%= bike.price_by_day %>€ per day</div>
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <a class="card-link" href="#" ></a>
         </div>
         <div class="card-footer">
           <h5><%= link_to(bike.name, bike_path(bike.id)) %></h5>
@@ -19,5 +17,8 @@
       <% end %>
     </div>
   </div>
+  <div id="map"></div>
 </div>
-<%= link_to("Add a new bike", new_bike_path, class: "btn btn-primary") %>
+
+
+
