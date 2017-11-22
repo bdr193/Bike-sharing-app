@@ -1,0 +1,10 @@
+<div id="content">
+  <div id="siteNotice">
+  </div>
+  <h6 id="firstHeading" class="firstHeading"> <%= bike.address %></h6>
+  <div id="bodyContent">
+    <p><b><%= bike.name%></b></p>
+    <p><%= bike.price_by_day %></p>
+    <%= link_to "See More", bike_path(bike) %>
+  </div>
+</div>

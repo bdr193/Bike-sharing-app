@@ -1,0 +1,21 @@
+<div class="card-container">
+    <div class="row">
+      <% @bikes_with_coordinates.each do |bike| %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2><%= link_to(bike.name, bike_path(bike.id)) %></h2>
+            <h5><%= bike.category.capitalize if bike.category %></h5>
+            <p>Address</p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to("Add a new bike", new_bike_path, class: "btn btn-primary") %>
+
