@@ -9,8 +9,12 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'devise'
 gem 'faker'
+<<<<<<< HEAD
 gem 'bootstrap-datepicker-rails'
 
+=======
+gem 'geocoder'
+>>>>>>> master
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -24,6 +28,11 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'omniauth-facebook'
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 group :development, :test do
   gem 'pry-byebug'
@@ -33,3 +42,4 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
