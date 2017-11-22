@@ -4,6 +4,9 @@ class BookingsController < ApplicationController
     @bookings = Booking.all.where(user_id: @user.id)
   end
   def show
+    puts "##################"
+    params.inspect
+    puts "##################"
     @booking = Booking.find(params[:id])
   end
   def new
@@ -12,6 +15,8 @@ class BookingsController < ApplicationController
   end
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.bike = Bike.find(params[:bike_id])
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -25,6 +30,6 @@ class BookingsController < ApplicationController
   end
   private
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :amount, :is_available, :bike_id, :user_id )
+    params.require(:booking).permit(:start_date, :end_date, :amount, :is_available)
   end
 end
