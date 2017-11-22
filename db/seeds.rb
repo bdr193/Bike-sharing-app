@@ -10,40 +10,47 @@ puts "Clearing database"
 User.destroy_all
 Bike.destroy_all
 
-User.create!(
+puts "hello"
+
+user_one = User.create!(
   email: "rabea_bader@gmail.com",
   password: "secret123",
   first_name: "Rabea",
   last_name: "Badea"
 )
 
-User.create!(
+user_two = User.create!(
   email: "sarah_lafer@yahoo.com",
   password: "secret123",
   first_name: "Sarah",
   last_name: "Lafer"
 )
 
-User.create!(
+user_three = User.create!(
   email: "stephan_is_great@gmail.com",
   password: "secret123",
   first_name: "Stephan",
   last_name: "Schmidbauer"
 )
 
-User.create!(
+user_four = User.create!(
   email: "richard_ogrady@gmail.com",
   password: "secret123",
   first_name: "Richard",
   last_name: "O'Grady"
 )
 
-User.create!(
+user_five = User.create!(
   email: "david_beckham@hotmail.com",
   password: "secret123",
   first_name: "David",
   last_name: "Beckham"
 )
+
+users = [user_one, user_two, user_three, user_four, user_five]
+puts users
+
+puts "Users completed"
 
 Bike.create!(
   address: "Schützenstraße 51, 10117 Berlin",
@@ -53,11 +60,13 @@ Bike.create!(
   category: "Vintage Bike",
   start_date: '21-11-2017',
   end_date: '30-11-2017',
-  user_id: 1,
+  user_id: users[0][:id],
+  photo_url: "https://www.lekkerbikes.com/wp-content/uploads/2017/01/Lekker-Sportief-Womens-Bike-Pastel-Blue.jpg"
   # latitude: 52.509073,
   # longitude: 13.395794,
-  photo: "https://www.lekkerbikes.com/wp-content/uploads/2017/01/Lekker-Sportief-Womens-Bike-Pastel-Blue.jpg"
   )
+
+puts "completed first"
 
 Bike.create!(
   address: "Axel-Springer-Straße 41, 10969 Berlin",
@@ -67,11 +76,13 @@ Bike.create!(
   category: "Mountain Bike",
   start_date: '21-11-2017',
   end_date: '30-11-2017',
-  user_id: 2,
+  user_id: users[1][:id],
+  photo_url: "http://rcmedulin.eu/wp-content/uploads/kids-bike-24-2-900-2-400x284.jpg"
   # latitude: 52.507535,
   # longitude: 13.399219,
-  photo: "http://rcmedulin.eu/wp-content/uploads/kids-bike-24-2-900-2-400x284.jpg"
   )
+
+puts "completed 2"
 
 Bike.create!(
   address: "26 Rudi-Dustchke-Strasse, 10969 Berlin",
@@ -81,11 +92,13 @@ Bike.create!(
   category: "Child's Bike",
   start_date: '21-11-2017',
   end_date: '30-11-2017',
-  user_id: 3,
+  user_id: users[2][:id],
+  photo_url: "https://static3.nordic.pictures/1172944-thickbox_default/girls-bicycle-disney-frozen-16-inch-volare.jpg"
   # latitude: 52.506897,
   # longitude: 13.391423,
-  photo: "https://static3.nordic.pictures/1172944-thickbox_default/girls-bicycle-disney-frozen-16-inch-volare.jpg"
   )
+
+puts "3"
 
 Bike.create!(
   address: "Charlottenstraße 85-96, 10969 Berlin",
@@ -95,11 +108,12 @@ Bike.create!(
   category: "Road Bike",
   start_date: '21-11-2017',
   end_date: '30-11-2017',
-  user_id: 4,
+  user_id: users[3][:id],
+  photo_url: "https://cdn.mangobikes.com/wp-content/uploads/custom-ss.jpg"
   # latitude: 52.505938,
   # longitude: 13.392723,
-  photo: "https://cdn.mangobikes.com/wp-content/uploads/custom-ss.jpg"
   )
+puts "4... one more"
 
 Bike.create!(
   address: "Schützenstraße 8, 10117 Berlin",
@@ -109,11 +123,12 @@ Bike.create!(
   category: "Road Bike",
   start_date: '21-11-2017',
   end_date: '30-11-2017',
-  user_id: 5,
+  user_id: users[4][:id],
+  photo_url: "http://www.studds.com.au/bikes/images/2016-studds-100-FB-road-bike-black-lar.jpg"
   # latitude: 52.508646,
   # longitude: 13.392961,
-  photo: "http://www.studds.com.au/bikes/images/2016-studds-100-FB-road-bike-black-lar.jpg"
   )
 
+puts "Fuck me you've actually loaded something"
 
 puts "Populating DB"
