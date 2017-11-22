@@ -13,8 +13,8 @@ class BikesController < ApplicationController
       end_date >= :end_date",
       {city: @city, start_date: @start_date, end_date: @end_date})
 
-      @bikes_with_coordinates = Bike.where.not(latitude: nil, longitude: nil)
-      @hash = Gmaps4rails.build_markers(@bikes_with_coordinates) do |bike, marker|
+    @bikes_with_coordinates = Bike.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@bikes_with_coordinates) do |bike, marker|
         marker.lat bike.latitude
         marker.lng bike.longitude
         marker.infowindow render_to_string(partial: "/bikes/map_box", locals: { bike: bike })
