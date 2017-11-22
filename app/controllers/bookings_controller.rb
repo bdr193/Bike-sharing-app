@@ -4,9 +4,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.all.where(user_id: @user.id)
   end
   def show
-    puts "##################"
-    params.inspect
-    puts "##################"
     @booking = Booking.find(params[:id])
   end
   def new
