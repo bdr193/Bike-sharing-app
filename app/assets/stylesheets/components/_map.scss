@@ -1,0 +1,13 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#map {
+  position: sticky !important;
+  top: 0;
+  width: 550px;
+  height: 100vh;
+  background-color: red;
+
+}
