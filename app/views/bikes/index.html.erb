@@ -2,7 +2,8 @@
   <div class="card-container">
     <div class="row">
       <% @bikes.each do |bike| %>
-      <div class="col-xs-12 col-md-6 wrapper"><% link_to bike_path(bike.id) %>
+      <div class="col-xs-12 col-md-6 wrapper">
+      <% link_to('Login', user_session_path, class: "wrapper" %>
         <div class="card">
           <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
           <div class="card-category"><%= bike.price_by_day %>€ per day</div>
@@ -19,6 +20,23 @@
   </div>
   <div id="map"></div>
 </div>
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map' } }, function() {
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+if (markers.length == 0) {
+    handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+    handler.getMap().setZoom(14);
+    }
+    });
+<% end %>
+<% end %>
 
 
 
