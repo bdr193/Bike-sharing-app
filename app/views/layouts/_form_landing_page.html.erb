@@ -1,5 +1,5 @@
-<%=  simple_form_for :bike, :html => { :class => 'form-inline' } do |f|  %>
-    <%= f.input :city, placeholder: 'City', label: false %>
+<%=  simple_form_for :bike, url: bikes_path, method: 'GET', :html => { :class => 'form-inline' } do |f|  %>
+    <%= f.input :city, name: 'city', value: '', placeholder: 'City', label: false %>
     <%= f.input :start_date, placeholder: 'Start Date', label: false %>
     <%= f.input :end_date, placeholder: 'End Date', label: false %>
     <%= f.submit "Find a bike", class: "btn btn-warning" %>
