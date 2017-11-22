@@ -9,12 +9,12 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'devise'
 gem 'faker'
-<<<<<<< HEAD
-gem 'bootstrap-datepicker-rails'
 
-=======
+gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
->>>>>>> master
+
+gem 'bootstrap-datepicker-rails'
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

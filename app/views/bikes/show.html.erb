@@ -5,7 +5,6 @@
   <p><%= @bike.address %></p>
   <p><%= @bike.city %></p>
   <p><%= @bike.price_by_day %></p>
-  <p>posted by: <%= @bike.user.email %></p>
   <% if @bike.photo? %>
   <%= cl_image_tag @bike.photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
