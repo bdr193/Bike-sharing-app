@@ -10,11 +10,7 @@ class BikesController < ApplicationController
     # @bikes = Bike.all.where(city: @city && :end_date >= @start_date)
     # city: @city &&
     # && :end_date >= @start_date
-    @bikes = Bike.all.where("city = :city  AND
-                            start_date <= :start_date AND
-                            end_date >= :start_date AND
-                            end_date >= :end_date",
-                            {city: @city, start_date: @start_date, end_date: @end_date})
+    @bikes = Bike.available(@city, @start_date, @end_date)
   end
 
   def show
