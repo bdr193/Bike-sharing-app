@@ -2,7 +2,7 @@
 
 <p>Price per Day: EUR <%= @bike.price_by_day %></p>
 
-<%=  simple_form_for [@bike, @booking], url: booking_path(@booking), method: 'GET', :html => { :class => 'form-inline' } do |f|  %>
+<%=  simple_form_for [@bike, @booking], :html => { :class => 'form-inline' } do |f|  %>
     <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
     <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
     <%= f.submit "Book this bike", class: "btn btn-warning" %>
