@@ -1,31 +1,53 @@
 
 <div class="container margin-container">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 boundary">
-        <div class="bike-photo", style="background-image:
-        url('<%= cl_image_path @bike.photo.path, crop: :fit %>')">
-          <div class="card-category">
-            <%= @bike.price_by_day %>€<br />
-            <p class="card-price">per day</p>
-          </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 boundary">
+      <div class="bike-photo", style="background-image:
+      url('<%= cl_image_path @bike.photo.path, crop: :fit %>')">
+      <div class="card-category">
+        <%= @bike.price_by_day %>€<br />
+        <p class="card-price">per day</p>
       </div>
     </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="bike-description text-left">
-        <h2><%= @bike.name %></h2>
-        <p><%= @bike.description %></p>
-        <p><%= @bike.category %></p>
-        <p><em><%= @bike.address %></em></p>
-        <br>
-        <%= link_to("Book Now!", new_bike_booking_path(@bike), class: "btn btn-warning btn-wide") %>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div class="bike-description text-left">
+      <h2><%= @bike.name %></h2>
+      <p><%= @bike.description %></p>
+      <p><%= @bike.category %></p>
+      <p><em><%= @bike.address %></em></p>
+      <br>
+      <%= link_to("Book Now!", new_bike_booking_path(@bike), class: "btn btn-warning btn-wide") %>
 
-      </div>
     </div>
-
-  </div>
-  <br />
-  <div class="container">
-  <%= link_to("Back", "javascript:history.back(-1)") %>
   </div>
 
+</div>
+<br />
+<br>
+<div id="map-two"></div>
+<br>
+<br>
+<div class="container">
+  <%= link_to("Back", "javascript:history.back(-1)", class: "btn btn-warning") %>
+</div>
+<br>
+<br>
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: { id: 'map-two' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+<% end %>
+<% end %>
 

@@ -22,6 +22,11 @@ class BikesController < ApplicationController
     end
 
     def show
+       @hash = Gmaps4rails.build_markers(@bike) do |bike, marker|
+        marker.lat bike.latitude
+        marker.lng bike.longitude
+        marker.infowindow render_to_string(partial: "/bikes/map_box", locals: { bike: bike })
+      end
     end
 
     def edit
