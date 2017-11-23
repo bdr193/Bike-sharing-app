@@ -12,6 +12,8 @@
     <%= f.input :price_by_day %>
     <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
     <%= f.input :photo, as: :attachinary %>
+    <%= f.input :start_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'Start Date', label: 'Rent From' %>
+    <%= f.input :end_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'End Date', label: 'Rent Until' %>
   </div>
   <div class="text-center">
   <%= f.submit "Submit", class: "btn btn-warning" %>

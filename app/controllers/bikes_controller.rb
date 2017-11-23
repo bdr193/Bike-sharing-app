@@ -21,6 +21,10 @@ class BikesController < ApplicationController
       end
     end
 
+    def offers
+      @bikes = Bike.where(user_id: current_user.id)
+    end
+
     def show
     end
 
@@ -38,6 +42,7 @@ class BikesController < ApplicationController
 
     def create
       @bike = Bike.new(bike_params)
+      @bike.user_id = current_user.id
       if @bike.save
         redirect_to @bike
       else
@@ -53,7 +58,7 @@ class BikesController < ApplicationController
     protected
 
     def bike_params
-      params.require(:bike).permit(:name, :photo, :photo_cache, :category, :address, :description, :city, :price_by_day, :user)
+      params.require(:bike).permit(:name, :start_date, :end_date, :photo, :photo_cache, :category, :address, :description, :city, :price_by_day, :user)
     end
 
     def find_bike_id
