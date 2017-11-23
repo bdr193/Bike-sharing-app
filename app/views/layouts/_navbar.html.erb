@@ -7,7 +7,7 @@
   <% if current_user %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
+    <%= link_to('Bookings', bookings_path, class: "navbar-wagon-item navbar-wagon-link")  %>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
     <%= link_to('Rent your bike', new_bike_path, class: "navbar-wagon-item navbar-wagon-link")  %>
     <!-- Profile picture with dropdown list -->

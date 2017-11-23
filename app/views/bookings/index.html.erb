@@ -1,9 +1,25 @@
-<h1> Here are all your bookings</h1>
+<div class="container text-center">
+  <h1> Check out your bookings</h1>
+  <br>
+  <div class="bookings-container">
+    <% @bookings.each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+    <div class="booking">
+        <%= cl_image_tag booking.bike.photo.path, class: "booking-image" %>
+        <div class='booking-body text-left'>
+          <h3><%= booking.bike.name %></h3>
+          <p><%= booking.bike.description %></p>
+          <p>From <%= booking.start_date %> to <%= booking.end_date %> for <b><%= ((booking.end_date - booking.start_date) * booking.bike.price_by_day).to_i %>€</b></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @bookings.each do |booking| %>
-  <li>
-    <%= link_to booking.bike.name, booking_path(booking) %>
-  </li>
-  <% end %>
-</ul>
+
+
+
+
+
