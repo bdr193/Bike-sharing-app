@@ -1,2 +1,19 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Your booking has been confirmed !</h1>
+
+<h2> <%= @booking.bike.name %> </h2>
+<h4> Rent-Start: <%= @booking.start_date %> </h4>
+<h4> Rent-End: <%= @booking.end_date %> </h4>
+<h4> Price-per-day: <%= @booking.bike.price_by_day %>€ </h4>
+
+<h4> Please pickup the bike at the following address: <%= @booking.bike.address %></h4>
+
+<h4> Please check your email for the invoice and get in touch with the owner of the bike! </h5>
+
+<h4> Have a nice ride! Your Bikey Team </h5>
+
+
+
+
+<%= link_to("See all your Bookings", bookings_path, class: "btn btn-primary") %>
+
+
