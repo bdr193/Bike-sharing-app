@@ -5,19 +5,20 @@
     <% @bookings.each do |booking| %>
     <%= link_to booking_path(booking) do %>
     <div class="booking">
-        <%= cl_image_tag booking.bike.photo.path, class: "booking-image" %>
-        <div class='booking-body text-left'>
-          <h3><%= booking.bike.name %></h3>
-          <p><%= booking.bike.description %></p>
-          <p>From  <em><%= booking.start_date %></em> to <em><%= booking.end_date %></em></p>
-        </div>
+      <%= cl_image_tag booking.bike.photo.path, class: "booking-image" %>
+      <div class='booking-body text-left'>
+        <h3><%= booking.bike.name %></h3>
+        <p><%= booking.bike.description %></p>
+        <p>From  <em><%= booking.start_date %></em> to <em><%= booking.end_date %></em></p>
       </div>
     </div>
-    <% end %>
-    <% end %>
   </div>
+  <% end %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to("Back to search", "javascript:history.go(-4)", class: "btn btn-warning text-center") %>
 </div>
-
 
 
 
