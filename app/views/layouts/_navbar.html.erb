@@ -15,8 +15,8 @@
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <%= link_to('Profile', edit_user_path, class: "navbar-wagon-item navbar-wagon-link")  %>
-          <%= link_to('My Bikes', new_bike_path, class: "navbar-wagon-item navbar-wagon-link")  %>
+          <li><a href="#">Profile</a></li>
+          <li><%= link_to('My Bikes', offers_bikes_path, class: "navbar-wagon-item navbar-wagon-link")  %></li>
           <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </div>
