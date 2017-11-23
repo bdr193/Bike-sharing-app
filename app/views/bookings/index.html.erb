@@ -1,14 +1,22 @@
-<h1> Here are all your bookings</h1>
-
-<ul>
-  <% @bookings.each do |booking| %>
-  <li>
-    <%= link_to booking.bike.name, booking_path(booking) %>
-  </li>
-  <% end %>
-</ul>
-
-
 <div class="container text-center">
-<%= link_to("Back to your Search Results", "javascript:history.go(-4)", class: "btn btn-warning text-center") %>
+  <h1> Check out your bookings</h1>
+  <br>
+  <div class="bookings-container">
+    <% @bookings.each do |booking| %>
+    <%= link_to booking_path(booking) do %>
+    <div class="booking">
+      <%= cl_image_tag booking.bike.photo.path, class: "booking-image" %>
+      <div class='booking-body text-left'>
+        <h3><%= booking.bike.name %></h3>
+        <p><%= booking.bike.description %></p>
+        <p>From  <em><%= booking.start_date %></em> to <em><%= booking.end_date %></em></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <br>
+  <br>
+  <%= link_to("Back to search", "javascript:history.go(-4)", class: "btn btn-warning text-center") %>
 </div>
