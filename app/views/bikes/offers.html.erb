@@ -1,0 +1,17 @@
+<h1> Here are all the bikes you offered:</h1>
+
+<ul>
+  <% @bikes.each do |bike| %>
+  <li>
+  <h4> Name of your bike: <%= bike.name %> </h4>
+  <h4> Category: <%= bike.category %></h4>
+  <h4> Price by day: <%= bike.price_by_day %>€ </h4>
+  <h4> Start of Rent: <%= bike.start_date %></h4>
+  <h4> End of Rent: <%= bike.end_date %></h4>
+  </li>
+  <% end %>
+</ul>
+
+<div>
+<%= link_to("Add another offer!", new_bike_path, class: "btn btn-warning") %>
+</div>
