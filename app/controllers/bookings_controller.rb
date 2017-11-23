@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
   def create
     @bike = Bike.find(params[:bike_id])
     @booking = Booking.new(booking_params)
+    raise
     @booking.user = current_user
     @booking.bike = @bike
     if @booking.save
