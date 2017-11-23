@@ -1,0 +1,32 @@
+/* Main search */
+.search-wagon {
+  position: sticky !important;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: $orange;
+  transition: all 0.3s ease;
+  height: 70px;
+  width: 100%;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  top: 0;
+  z-index: 9999;
+
+}
+
+.dropdown, .btn-group {
+  margin-right: 30px;
+  font-size: 12px;
+  font-weight: lighter;
+  color: black;
+
+}
+
+.btn {
+  border-radius: 4px;
+}
+
+.btn-city {
+  margin-left: 145px;
+}
