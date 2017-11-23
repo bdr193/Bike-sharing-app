@@ -13,14 +13,10 @@
     <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
     <%= f.input :photo, as: :attachinary %>
   </div>
-</div>
-<div class="container">
-<div class="text-center">
-  <%= f.submit "Submit", class: "btn btn-warning btn-half-wide" %>
-  <br>
-  <br>
-  <%= link_to("Cancel", bikes_path, class: "btn btn-warning btn-half-wide") %>
+  <div class="text-center">
+  <%= f.submit "Submit", class: "btn btn-warning" %>
+  <%= link_to("Cancel", bikes_path, class: "btn btn-warning") %>
   <% end %>
-</div>
+  </div>
 </div>
 
