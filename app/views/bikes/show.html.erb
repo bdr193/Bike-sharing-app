@@ -2,10 +2,18 @@
   <div class="main-container">
     <div id="bike-photo">
       <% if @bike.photo? %>
-      <%= cl_image_tag @bike.photo.path, width: 400, crop: :fill %>
+      <%= cl_image_tag @bike.photo.path, width: 700, height: 400, crop: :fill %>
       <% end %>
     </div>
-    <div class="bike-description">
+    <div class="booking-form">
+
+    </div>
+
+    <br>
+    <br>
+
+  </div>
+  <div class="bike-description">
       <h2><%= @bike.name %></h2>
       <p><%= @bike.description %></p>
       <p><%= @bike.category %></p>
@@ -14,8 +22,4 @@
       <p><%= @bike.price_by_day %></p>
       <%= link_to("Back", bikes_path, class: "btn btn-warning") %>
     </div>
-    <br>
-    <br>
-
-  </div>
 </div>
