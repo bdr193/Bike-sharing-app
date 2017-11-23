@@ -56,7 +56,6 @@ user_five = User.create!(
 )
 
 users = [user_one, user_two, user_three, user_four, user_five]
-puts users
 
 puts "Users completed"
 puts "Creating bikes"
