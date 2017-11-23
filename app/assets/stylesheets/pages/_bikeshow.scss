@@ -1,9 +1,10 @@
 .margin-container {
   margin-top: 50px;
+  position: relative;
 }
 
 .bike-photo {
-  height: 400px;
+  height: 340px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover !important;
@@ -15,4 +16,16 @@
   box-shadow: 1px 1px #EBEBF3;
   border-radius: 4px;
   padding: 10px 30px;
+  height: 340px;
+}
+
+.card-category {
+  margin-left: 18px;
+}
+
+.bottom-btn {
+  position: absolute ;
+  bottom: 15px;
+  width: 84%;
+  // padding: -10px -30px;
 }
