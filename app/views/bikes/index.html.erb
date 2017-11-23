@@ -1,40 +1,41 @@
 <div class="main-container">
   <div class="card-container">
+    <%= render 'bikes/searchbar' %>
     <div class="row">
       <% @bikes.each do |bike| %>
       <div class="col-xs-12 col-md-6 wrapper">
-      <% link_to('Login', user_session_path, class: "wrapper") %>
+        <% link_to('Login', user_session_path, class: "wrapper") %>
         <div class="card">
           <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
           <div class="card-category"><%= bike.price_by_day %>€<br />
-          <p class="card-price">per day</p></div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            <p class="card-price">per day</p></div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          </div>
+          <div class="card-footer">
+            <h5><%= link_to(bike.name, bike_path(bike.id)) %></h5>
+            <h6><%= bike.category.capitalize %></h6>
+            <p><%= bike.address %></p>
+          </div>
         </div>
-        <div class="card-footer">
-          <h5><%= link_to(bike.name, bike_path(bike.id)) %></h5>
-          <h6><%= bike.category.capitalize %></h6>
-          <p><%= bike.address %></p>
-        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
+    <div id="map"></div>
   </div>
-  <div id="map"></div>
-</div>
 
-<% content_for(:after_js) do %>
-<%= javascript_tag do %>
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
 
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: { id: 'map' } }, function() {
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: { id: 'map' } }, function() {
   markers = handler.addMarkers(<%= raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
-if (markers.length == 0) {
-    handler.getMap().setZoom(2);
-    } else if (markers.length == 1) {
-    handler.getMap().setZoom(14);
-    }
-    });
+  if (markers.length == 0) {
+  handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
 <% end %>
 <% end %>
