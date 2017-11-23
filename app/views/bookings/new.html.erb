@@ -1,17 +1,25 @@
-<div class="container">
+<div class="container margin-container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <%= cl_image_tag @bike.photo.path %>
+    <div class="col-xs-12 col-md-6 boundary">
+      <div class="bike-photo", style="background-image:
+      url('<%= cl_image_path @bike.photo.path, crop: :fit %>')">
+      <div class="card-category">
+        <%= @bike.price_by_day %>€<br />
+        <p class="card-price">per day</p>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <<h1>Book this bike</h1>
-
-      <p>Price per Day: EUR <%= @bike.price_by_day %></p>
-
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <div class="bike-description text-left">
+      <h1>Book this bike</h1>
       <%=  simple_form_for [@bike, @booking], :html => { :class => 'form-inline' } do |f|  %>
-      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
-      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
-      <%= f.submit "Book this bike", class: "btn btn-warning" %>
+      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'Start Date', label: 'Rent From' %>
+      <br>
+      <br>
+      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'End Date', label: 'Rent Until' %>
+      <br>
+      <br>
+      <%= f.submit "Book this bike", class: "btn btn-warning btn-wide" %>
       <% end %>
     </div>
   </div>
