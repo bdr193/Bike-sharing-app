@@ -1,11 +1,26 @@
+<h1 class="text-center">Give your bike a holiday!</h1>
+
 <%= simple_form_for(@bike) do |f| %>
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :description %>
-<%= f.input :city, collection: [ "Berlin", "Tel Aviv", "London", "Brussles"] %>
-<%= f.input :price_by_day %>
-<%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
-<%= f.input :photo, as: :attachinary %>
-<%= f.submit "Submit", class: "btn btn-primary"%>
-<% end %>
-<%= link_to("Cancel", bikes_path, class: "btn btn-danger") %>
+<div class="form-container">
+  <div class="col-xs-12 col-md-6">
+    <%= f.input :name, label: "Title" %>
+    <%= f.input :address, label: "Give a collection point" %>
+    <%= f.input :description, label: "How would you describe your bike? (max 100 words)" %>
+    <%= f.input :city, label: "What city are you in?", collection: [ "Berlin", "Tel Aviv", "London", "Brussles"] %>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <%= f.input :price_by_day %>
+    <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
+    <%= f.input :photo, as: :attachinary %>
+  </div>
+</div>
+<div class="container">
+<div class="text-center">
+  <%= f.submit "Submit", class: "btn btn-warning btn-half-wide" %>
+  <br>
+  <br>
+  <%= link_to("Cancel", bikes_path, class: "btn btn-warning btn-half-wide") %>
+  <% end %>
+</div>
+</div>
+
