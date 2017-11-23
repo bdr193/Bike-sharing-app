@@ -3,7 +3,7 @@
     <div class="row">
       <% @bikes.each do |bike| %>
       <div class="col-xs-12 col-md-6 wrapper">
-      <% link_to('Login', user_session_path, class: "wrapper" %>
+      <% link_to('Login', user_session_path, class: "wrapper") %>
         <div class="card">
           <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
           <div class="card-category"><%= bike.price_by_day %>€ per day</div>
@@ -37,6 +37,3 @@ if (markers.length == 0) {
     });
 <% end %>
 <% end %>
-
-
-
