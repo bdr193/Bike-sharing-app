@@ -8,7 +8,8 @@
           <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
           <div class="card-category"><%= bike.price_by_day %>€<br />
           <p class="card-price">per day</p></div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <% user_url = bike.user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "card-user" %>
         </div>
         <div class="card-footer">
           <h5><%= link_to(bike.name, bike_path(bike.id)) %></h5>
