@@ -15,8 +15,7 @@
         <h2><%= @bike.name %></h2>
         <p><%= @bike.description %></p>
         <p><%= @bike.category %></p>
-        <p><%= @bike.address %></p>
-        <p><%= @bike.city %></p>
+        <p><em><%= @bike.address %></em></p>
         <br>
         <%= link_to("Book Now!", new_bike_booking_path(@bike), class: "btn btn-warning btn-wide") %>
 
