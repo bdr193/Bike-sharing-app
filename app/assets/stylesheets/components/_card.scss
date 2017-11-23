@@ -5,7 +5,15 @@
 .wrapper {
   padding: 1em;
   border-radius: 2px;
+  position: relative;
 
+}
+
+.card-link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }
 
 .card {
@@ -20,7 +28,6 @@
   margin-right: 10px;
 
 }
-
 
 .card-image {
   width: 100%;

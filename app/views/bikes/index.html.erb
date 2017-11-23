@@ -3,7 +3,7 @@
     <div class="row">
       <% @bikes.each do |bike| %>
       <div class="col-xs-12 col-md-6 wrapper">
-        <% link_to('Login', user_session_path, class: "wrapper") %>
+        <%= link_to('', bike_path(bike), class: "card-link") %>
         <div class="card">
           <% bike_photo = bike.photo.path || "https://www.google.de/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj66NLkx9TXAhVRIOwKHdWtC1IQjRwIBw&url=http%3A%2F%2Fwww.85percent.co.uk%2Fbuy-to-let-mortgage%2Fbtl-with-no-early-repayment-charges%2F&psig=AOvVaw0GclLcwU7HZow_ke_2uZFC&ust=1511521837811596" %>
           <%= cl_image_tag bike_photo, class: "card-image", crop: :fill %>
