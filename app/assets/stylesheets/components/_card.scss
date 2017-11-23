@@ -47,10 +47,11 @@
   font-size: 18px;
   text-transform: uppercase;
   background-color: #E67E22;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 5px 15px 0 15px;
+  border-radius: 30%;
   color: white;
-  font-weight: bold;
+  font-family: $fun-font;
+  text-align: center;
 }
 
 .card-footer {
@@ -68,6 +69,7 @@
   color: #E67E22;
   text-shadow: none;
   font-weight: bold;
+  font-family: $body-font;
 }
 
 .card-footer h6 {
@@ -85,3 +87,9 @@
   opacity: 0.4;
 }
 
+
+.card-price {
+  font-size: 11px;
+  font-weight: lighter;
+  color: black;
+}
