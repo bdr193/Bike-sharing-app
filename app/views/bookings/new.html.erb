@@ -1,9 +1,18 @@
-<h1>Book this bike</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= cl_image_tag @bike.photo.path %>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <<h1>Book this bike</h1>
 
-<p>Price per Day: EUR <%= @bike.price_by_day %></p>
+      <p>Price per Day: EUR <%= @bike.price_by_day %></p>
 
-<%=  simple_form_for [@bike, @booking], :html => { :class => 'form-inline' } do |f|  %>
-    <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
-    <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
-    <%= f.submit "Book this bike", class: "btn btn-warning" %>
-<% end %>
+      <%=  simple_form_for [@bike, @booking], :html => { :class => 'form-inline' } do |f|  %>
+      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
+      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
+      <%= f.submit "Book this bike", class: "btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>
+</div>
