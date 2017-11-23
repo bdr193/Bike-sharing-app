@@ -1,27 +1,36 @@
 <div class="search-wagon">
   <!-- Logo -->
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Category
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="#">City Bike</a></li>
-      <li><a href="#">Mountain Bike</a></li>
-      <li><a href="#">Trekking Bike</a></li>
-      <li><a href="#">Children's Bike</a></li>
-    </ul>
-  </div>
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Price per Day
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="#">0 - 20€</a></li>
-      <li><a href="#">20€ - 40€</a></li>
-      <li><a href="#">40€ - 60€</a></li>
-      <li><a href="#">60€ < </a></li>
-    </ul>
-  </div>
+
+
+  <%=  simple_form_for :bike, url: bikes_path, method: 'GET', :html => { :class => 'form-inline' } do |f|  %>
+    <%= f.input :start_date, placeholder: 'Start Date', label: false %>
+    <%= f.input :end_date, placeholder: 'End Date', label: false %>
+    <%= f.submit "Filter", class: "btn btn-default" %>
+<% end %>
+
+
+<div class="btn-group" role="group" aria-label="...">
+  <%= link_to('Change City / Date', root_path, class: "btn btn-default") %>
 </div>
+
+
+</div>
+
+
+
+
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select :category, id: :dose_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ingredient_id %>
+    <%= form.collection_select :ingredient_id, Ingredient.all, :id, :name  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
