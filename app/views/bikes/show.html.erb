@@ -1,20 +1,31 @@
-<div class="container" style="text-align:center;">
-  <h2><%= @bike.name %></h2>
-  <p><%= @bike.description %></p>
-  <p><%= @bike.category %></p>
-  <p><%= @bike.address %></p>
-  <p><%= @bike.city %></p>
-  <p><%= @bike.price_by_day %></p>
-  <% if @bike.photo? %>
-  <%= cl_image_tag @bike.photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-  <br>
-  <%= link_to("Book", new_bike_booking_path(@bike), class: "btn btn-primary") %>
-  <br>
 
-  <%= link_to("Edit", edit_bike_path, class: "btn btn-primary") %>
-  <%= link_to("Back", bikes_path, class: "btn btn-primary") %>
-  <%= link_to "Delete", bike_path(@bike), class: "btn btn-primary",
-  method: :delete,
-  data: { confirm: "Are you sure?" } %>
-</div>
+<div class="container margin-container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 boundary">
+        <div class="bike-photo", style="background-image:
+        url('<%= cl_image_path @bike.photo.path, crop: :fit %>')">
+          <div class="card-category">
+            <%= @bike.price_by_day %>€<br />
+            <p class="card-price">per day</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="bike-description text-left">
+        <h2><%= @bike.name %></h2>
+        <p><%= @bike.description %></p>
+        <p><%= @bike.category %></p>
+        <p><em><%= @bike.address %></em></p>
+        <br>
+        <%= link_to("Book Now!", new_bike_booking_path(@bike), class: "btn btn-warning btn-wide") %>
+
+      </div>
+    </div>
+
+  </div>
+  <br />
+  <div class="container">
+  <%= link_to("Back", bikes_path) %>
+  </div>
+
+
