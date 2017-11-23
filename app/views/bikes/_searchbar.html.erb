@@ -1,0 +1,12 @@
+<div class="search-wagon">
+  <!-- Logo -->
+<%=  simple_form_for :bike, url: bikes_path, method: 'GET', :html => { :class => 'form-inline' } do |f|  %>
+
+<%= f.input :category, name: 'category', :prompt => "Category", value: '', label: false,  collection: [ "City Bike", "Mountain Bike", "Child's Bike", "Road Bike", "Vintage Bike"] %>
+<%= f.input :price_by_day, name: 'price_by_day', value: '', :prompt => "Price By Day", label: false, collection: [ "< 20€", "20€ - 50€", "50€ - 70€", "70€ - 100€", "100€ <"] %>
+<%= f.submit "Filter", class: "btn btn-default"%>
+<% end %>
+
+<%= link_to("Change City / Dates", root_path, class: "btn btn-default btn-city") %>
+
+</div>
