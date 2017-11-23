@@ -3,13 +3,15 @@
     <div class="row">
       <% @bikes.each do |bike| %>
       <div class="col-xs-12 col-md-6 wrapper">
-      <% link_to('Login', user_session_path, class: "wrapper") %>
+        <% link_to('Login', user_session_path, class: "wrapper") %>
         <div class="card">
-          <div class="card-image"><%= image_tag 'https://kitt.lewagon.com/placeholder/cities/shanghai' %></div>
+          <% bike_photo = bike.photo.path || "https://www.google.de/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj66NLkx9TXAhVRIOwKHdWtC1IQjRwIBw&url=http%3A%2F%2Fwww.85percent.co.uk%2Fbuy-to-let-mortgage%2Fbtl-with-no-early-repayment-charges%2F&psig=AOvVaw0GclLcwU7HZow_ke_2uZFC&ust=1511521837811596" %>
+          <%= cl_image_tag bike_photo, class: "card-image" %>
           <div class="card-category"><%= bike.price_by_day %>€<br />
-          <p class="card-price">per day</p></div>
-          <% user_url = bike.user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "card-user" %>
+            <p class="card-price">per day</p>
+          </div>
+          <% user_photo = bike.user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag user_photo, class: "card-user" %>
         </div>
         <div class="card-footer">
           <h5><%= link_to(bike.name, bike_path(bike.id)) %></h5>
@@ -31,11 +33,11 @@ handler.buildMap({ internal: { id: 'map' } }, function() {
   markers = handler.addMarkers(<%= raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
-if (markers.length == 0) {
+  if (markers.length == 0) {
     handler.getMap().setZoom(2);
-    } else if (markers.length == 1) {
+  } else if (markers.length == 1) {
     handler.getMap().setZoom(14);
-    }
-    });
+  }
+});
 <% end %>
 <% end %>
