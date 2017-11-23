@@ -1,5 +1,9 @@
 <h1> Here are all your bookings</h1>
 
-<% @bookings.each do |booking| %>
-   <p>  <%= booking.bike.name %> </p>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li>
+    <%= link_to booking.bike.name, booking_path(booking) %>
+  </li>
   <% end %>
+</ul>
