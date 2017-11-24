@@ -9,21 +9,27 @@ class BikesController < ApplicationController
   end
 
   def index
-    @city = params[:bike][:city] || session[:city]
     @start_date = params[:bike][:start_date] || session[:start_date]
     @end_date = params[:bike][:end_date] || session[:end_date]
-    info(city: @city, start_date: @start_date, end_date: @end_date)
+    @lat = params[:bike][:lat] || session[:lng]
+    @lng = params[:bike][:lng] || session[:lat]
 
-    @bikes = Bike.near([params[:bike][:lat],params[:bike][:lng]], 15).where("start_date <= :start_date AND
+
+    @bikes = Bike.near([@lat, @lng], 100)
+    @bikes = @bikes.where("start_date <= :start_date AND
       end_date >= :start_date AND
       end_date >= :end_date",
-      {start_date: @start_date, end_date: @end_date}).all
+      {start_date: @start_date, end_date: @end_date})
 
-      if params[:bike][:category].present?
-        info(category: @category)
-        @category = params[:bike][:category] || session[:category]
-        @bikes = @bikes.where("category = :category", { category: @category } )
-      end
+
+    if params[:bike][:category].present?
+      @category = params[:bike][:category]
+
+      #info(category: @category)
+      #puts session.inspect
+
+      @bikes = @bikes.where(category: @category)
+    end
 
       if params[:bike][:price_by_day].present?
         @price_by_day = params[:bike][:price_by_day]
@@ -43,6 +49,9 @@ class BikesController < ApplicationController
             @bikes = @bikes.where("price_by_day > 100")
           end
       end
+
+
+      info(start_date: @start_date, end_date: @end_date, lat: @lat, lng: @lng)
 
       @bikes_with_coordinates = @bikes.where.not(latitude: nil, longitude: nil)
       @hash = Gmaps4rails.build_markers(@bikes_with_coordinates) do |bike, marker|
