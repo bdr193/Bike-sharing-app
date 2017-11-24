@@ -1,18 +1,13 @@
-<div class="container text-center">
-<h1>Your booking has been confirmed!</h1>
-<br>
-<h3><b> <%= @booking.bike.name %> </b></h3>
-<br>
-<h4>Your order is from <%= @booking.start_date %> to <%= @booking.end_date %> for <b><%= @booking_amount %>€</b></h4>
-<br>
-<h4>You can collect the bike at the following address: <b><%= @booking.bike.address %></b></h4>
-<br>
-<h4>The owner of the bike will be in touch soon!</h5>
-<br>
-<h4> Have a nice ride! The Bikey Team </h5>
-</div>
-<br>
-
-<div class="container text-center">
-<%= link_to("See all your Bookings", bookings_path, class: "btn btn-warning text-center") %>
+<div class="container text-center note">
+  <h1>Your booking has been confirmed!</h1>
+  <h3><%= @booking.bike.name %></h3>
+  <h4>Your order is from <%= @booking.start_date %> to <%= @booking.end_date %> for <strong> <%= @booking_amount %>€</strong></h4>
+  <%= cl_image_tag @booking.bike.photo.path, class: "note-image" %>
+  <p>You can collect the bike at the following address: <strong><%= @booking.bike.address %></strong></p>
+  <p>The owner of the bike will be in touch soon!</p>
+  <p> Have a nice ride!</p>
+  <p class="signature">The Bikey Team </p>
+  <div class="container text-center button">
+    <%= link_to("See all your Bookings", bookings_path, class: "btn btn-warning text-center btn-space") %>
+  </div>
 </div>
