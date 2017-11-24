@@ -3,16 +3,21 @@
   <br>
   <div class="bikes-container">
     <% @bikes.each do |bike| %>
-    <%= link_to bike_path(bike) do %>
     <div class="bike">
+      <%= link_to bike_path(bike), class: "flex-offer-container" do %>
+      <div class="flex-offer">
       <%= cl_image_tag bike.photo.path, class: "bike-image" %>
+      </div>
       <div class='bike-body text-left'>
         <h3><%= bike.name %></h3>
         <p><%= bike.description %></p>
         <p>From  <em><%= bike.start_date %></em> to <em><%= bike.end_date %></em></p>
       </div>
+      <div class="flex-offer">
+      <%= link_to "Edit", edit_bike_path(bike), class: "btn btn-warning bike-button" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
     <% end %>
   </div>
 
