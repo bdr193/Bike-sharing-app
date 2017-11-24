@@ -1,17 +1,24 @@
-<h1> Here are all the bikes you offered:</h1>
+<div class="container text-center">
+  <h1> Check out your bikes</h1>
+  <br>
+  <div class="bikes-container">
+    <% @bikes.each do |bike| %>
+    <%= link_to bike_path(bike) do %>
+    <div class="bike">
+      <%= cl_image_tag bike.photo.path, class: "bike-image" %>
+      <div class='bike-body text-left'>
+        <h3><%= bike.name %></h3>
+        <p><%= bike.description %></p>
+        <p>From  <em><%= bike.start_date %></em> to <em><%= bike.end_date %></em></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
 
-<ul>
-  <% @bikes.each do |bike| %>
-  <li>
-  <h4> Name of your bike: <%= bike.name %> </h4>
-  <h4> Category: <%= bike.category %></h4>
-  <h4> Price by day: <%= bike.price_by_day %>€ </h4>
-  <h4> Start of Rent: <%= bike.start_date %></h4>
-  <h4> End of Rent: <%= bike.end_date %></h4>
-  </li>
-  <% end %>
-</ul>
-
-<div>
-<%= link_to("Add another offer!", new_bike_path, class: "btn btn-warning") %>
+  <br>
+  <br>
+  <div>
+    <%= link_to("Add another offer!", new_bike_path, class: "btn btn-warning") %>
+  </div>
 </div>
