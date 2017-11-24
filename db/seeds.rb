@@ -71,7 +71,7 @@ Bike.create!(
   photo_url: "https://www.lekkerbikes.com/wp-content/uploads/2017/01/Lekker-Sportief-Womens-Bike-Pastel-Blue.jpg"
   # latitude: 52.509073,
   # longitude: 13.395794,
-  )
+)
 
 puts "First bike completed"
 
@@ -87,7 +87,7 @@ Bike.create!(
   photo_url: "http://rcmedulin.eu/wp-content/uploads/kids-bike-24-2-900-2-400x284.jpg"
   # latitude: 52.507535,
   # longitude: 13.399219,
-  )
+)
 
 puts "Second bike completed"
 
@@ -103,7 +103,7 @@ Bike.create!(
   photo_url: "https://www.raleigh.co.uk/media/catalog/product/r/a/raleigh_molli_moll16pk-9_1_1_1_1_1.jpg"
   # latitude: 52.506897,
   # longitude: 13.391423,
-  )
+)
 
 puts "Third bike completed"
 
@@ -119,22 +119,92 @@ Bike.create!(
   photo_url: "https://cdn.mangobikes.com/wp-content/uploads/custom-ss.jpg"
   # latitude: 52.505938,
   # longitude: 13.392723,
-  )
+)
 puts "Fourth bike completed"
 
 Bike.create!(
   address: "Schützenstraße 8, 10117 Berlin",
   city: "berlin",
-  name: "A just above average bike",
+  name: "Stemfmister bike",
   price_by_day: 15,
   category: "Road Bike",
   start_date: '21-11-2017',
-  end_date: '30-11-2017',
+  end_date: '30-11-2018',
   user_id: users[4][:id],
   photo_url: "http://www.studds.com.au/bikes/images/2016-studds-100-FB-road-bike-black-lar.jpg"
   # latitude: 52.508646,
   # longitude: 13.392961,
-  )
+)
 
-puts "Fifth bike completed"
+Bike.create!(
+  address: "Linienstraße 113, 10115 Berlin",
+  city: "berlin",
+  name: "Coco bike",
+  price_by_day: 18,
+  category: "Road Bike",
+  start_date: '21-11-2017',
+  end_date: '30-11-2018',
+  user_id: users[4][:id],
+  photo_url: "http://www.studds.com.au/bikes/images/2016-studds-100-FB-road-bike-white-lar.jpg"
+  # latitude: 52.508646,
+  # longitude: 13.392961,
+)
+
+Bike.create!(
+  address: "Karl-Liebknecht-Str. 3, 10178 Berlin",
+  city: "berlin",
+  name: "Boring bike",
+  price_by_day: 12,
+  category: "Road Bike",
+  start_date: '21-11-2017',
+  end_date: '30-11-2018',
+  user_id: users[0][:id],
+  photo_url: "http://www.studds.com.au/bikes/images/dutch-purple.png"
+  # latitude: 52.508646,
+  # longitude: 13.392961,
+)
+
+Bike.create!(
+  address: "Zimmerstraße 12, 10969 Berlin",
+  city: "berlin",
+  name: "Way above average bike",
+  price_by_day: 8,
+  category: "Road Bike",
+  start_date: '21-11-2017',
+  end_date: '30-11-2018',
+  user_id: users[3][:id],
+  photo_url: "http://rosen-meents.co.il/_uploads/extraimg/reacto400.jpg"
+  # latitude: 52.508646,
+  # longitude: 13.392961,
+)
+
+Bike.create!(
+  address: "Köthener Str. 28, 10963 Berlin",
+  city: "berlin",
+  name: "Fastest Bike",
+  price_by_day: 35,
+  category: "Road Bike",
+  start_date: '21-11-2017',
+  end_date: '30-11-2018',
+  user_id: users[1][:id],
+  photo_url: "http://rosen-meents.co.il/_uploads/extraimg/7000e.jpg"
+  # latitude: 52.508646,
+  # longitude: 13.392961,
+)
+
+Bike.create!(
+  address: "Am Kupfergraben 4/4A, 10117 Berlin",
+  city: "berlin",
+  name: "Crazy bike",
+  price_by_day: 45,
+  category: "Road Bike",
+  start_date: '21-11-2017',
+  end_date: '30-11-2018',
+  user_id: users[2][:id],
+  photo_url: "http://rosen-meents.co.il/_uploads/extraimg/44444444444444444444444444444444.jpg"
+  # latitude: 52.508646,
+  # longitude: 13.392961,
+)
+
+puts "All bikes completed"
 puts "Created #{User.all.length} Users and #{Bike.all.length} bikes"
