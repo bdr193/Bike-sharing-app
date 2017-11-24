@@ -13,5 +13,7 @@
 
 $('.datepicker').datepicker({
   format: 'yyyy-mm-dd',
-  autoclose: true
+  autoclose: true,
+  todayHighlight: true,
+  startDate: new Date(),
 });
