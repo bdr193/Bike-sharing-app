@@ -92,7 +92,7 @@ Bike.create!(
 puts "Second bike completed"
 
 Bike.create!(
-  address: "26 Rudi-Dustchke-Strasse, 10969 Berlin",
+  address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
   city: "berlin",
   name: "Funky fresh bike",
   price_by_day: 14,
