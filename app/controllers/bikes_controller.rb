@@ -52,53 +52,54 @@ class BikesController < ApplicationController
             end
           end
 
-          def offers
-            @bikes = Bike.where(user_id: current_user.id)
-          end
+  def offers
+    @bikes = Bike.where(user_id: current_user.id)
+  end
 
-          def show
-            @hash = Gmaps4rails.build_markers(@bike) do |bike, marker|
-              marker.lat bike.latitude
-              marker.lng bike.longitude
-              marker.infowindow render_to_string(partial: "/bikes/map_box", locals: { bike: bike })
-            end
-          end
+  def show
+    @hash = Gmaps4rails.build_markers(@bike) do |bike, marker|
+      marker.lat bike.latitude
+      marker.lng bike.longitude
+      marker.infowindow render_to_string(partial: "/bikes/map_box", locals: { bike: bike })
+    end
+    @booking = Booking.new
+  end
 
-          def edit
-          end
+  def edit
+  end
 
-          def update
-            @bike.update(bike_params)
-            redirect_to(@bike)
-          end
+  def update
+    @bike.update(bike_params)
+    redirect_to(@bike)
+  end
 
-          def new
-            @bike = Bike.new
-          end
+  def new
+    @bike = Bike.new
+  end
 
-          def create
-            @bike = Bike.new(bike_params)
-            @bike.user_id = current_user.id
-            if @bike.save
-              redirect_to @bike
-            else
-              render :new
-            end
-          end
+  def create
+    @bike = Bike.new(bike_params)
+    @bike.user_id = current_user.id
+    if @bike.save
+      redirect_to @bike
+    else
+      render :new
+    end
+  end
 
-          def destroy
-            @bike.destroy
-            redirect_to bikes_path
-          end
+  def destroy
+    @bike.destroy
+    redirect_to bikes_path
+  end
 
-          protected
+  protected
 
-          def bike_params
-            params.require(:bike).permit(:name, :start_date, :end_date, :photo, :photo_cache, :category, :address, :description, :city, :price_by_day, :user)
-          end
+  def bike_params
+    params.require(:bike).permit(:name, :start_date, :end_date, :photo, :photo_cache, :category, :address, :description, :city, :price_by_day, :user)
+  end
 
-          def find_bike_id
-            @bike = Bike.find(params[:id])
-          end
+  def find_bike_id
+    @bike = Bike.find(params[:id])
+  end
 
-        end
+end

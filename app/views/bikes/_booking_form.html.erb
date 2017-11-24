@@ -1,0 +1,9 @@
+<%=  simple_form_for [@bike, @booking], :html => { :class => 'form-inline' } do |f|  %>
+<%= f.input :start_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'Start Date', label: 'Rent From' %>
+<br>
+<br>
+<%= f.input :end_date, as: :string, input_html: { class: 'datepicker label-margin' }, placeholder: 'End Date', label: 'Rent Until' %>
+<br>
+<br>
+<%= f.submit "Book this bike", class: "btn btn-warning btn-wide" %>
+<% end %>
