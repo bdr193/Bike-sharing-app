@@ -10,13 +10,30 @@
 </head>
 <body>
 
-  <%= render 'layouts/navbar' %>
-  <% if alert or notice %>
-  <%= render 'layouts/messages' %>
+  <div id="wrap">
+    <div id="main">
 
-  <!-- <p class="alert"><%= alert %></p> -->
-  <% end %>
-  <%= yield %>
+      <%= render 'layouts/navbar' %>
+      <% if alert or notice %>
+      <%= render 'layouts/messages' %>
+
+      <!-- <p class="alert"><%= alert %></p> -->
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fa fa-github"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        Made with <i class="fa fa-heart"></i> at Bikey HQ
+      </div>
+  </footer>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
