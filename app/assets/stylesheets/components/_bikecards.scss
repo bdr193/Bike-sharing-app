@@ -2,14 +2,17 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  border-radius: 3px;
   transition: all 0.15s ease;
   background-color: white;
   margin-bottom: 50px;
   &:hover {
-    background-color: #EBEBF3;
+    background-color: #F1F1F1;
   }
   justify-content: space-between;
+  // border-bottom: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  border-radius: 3px;
+
 }
 
 /* Body design */
@@ -42,6 +45,7 @@
   a:link {
     text-decoration: none;
   }
+  padding: 0 40px;
 }
 
 .bike-button {
