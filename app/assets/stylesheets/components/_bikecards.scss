@@ -1,0 +1,41 @@
+.bike {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  background-color: #F7F7F7;
+  box-shadow: 1px 1px #E9EAEA;
+  &:hover {
+    background-color: #EBEBF3;
+  }
+}
+
+/* Body design */
+.bike-body {
+  flex: 1 1 auto;
+}
+.bike-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.bike-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* bike image */
+.bike-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+.bikes-container {
+  text-decoration:none;
+  a:link {
+    text-decoration: none;
+  }
+}
