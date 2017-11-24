@@ -12,14 +12,12 @@ class BikesController < ApplicationController
     @city = params[:bike][:city] || session[:city]
     @start_date = params[:bike][:start_date] || session[:start_date]
     @end_date = params[:bike][:end_date] || session[:end_date]
-    @city.downcase!
     info(city: @city, start_date: @start_date, end_date: @end_date)
 
-    @bikes = Bike.all.where("city = :city  AND
-      start_date <= :start_date AND
+    @bikes = Bike.near([params[:bike][:lat],params[:bike][:lng]], 15).where("start_date <= :start_date AND
       end_date >= :start_date AND
       end_date >= :end_date",
-      {city: @city, start_date: @start_date, end_date: @end_date})
+      {start_date: @start_date, end_date: @end_date}).all
 
       if params[:bike][:category].present?
         info(category: @category)

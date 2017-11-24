@@ -9,6 +9,7 @@
   &:hover {
     background-color: #EBEBF3;
   }
+  justify-content: space-between;
 }
 
 /* Body design */
@@ -24,6 +25,7 @@
   font-weight: lighter;
   color: #999999;
   margin-bottom: 0;
+  align-items: center;
 }
 
 /* bike image */
@@ -38,4 +40,18 @@
   a:link {
     text-decoration: none;
   }
+}
+
+.bike-button {
+  margin: 0px;
+}
+
+// .flex-offer {
+//   flex: 1;
+// }
+
+.flex-offer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
