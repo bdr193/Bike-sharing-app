@@ -8,7 +8,8 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to('My Bookings', bookings_path, class: "navbar-wagon-item navbar-wagon-link")  %>
-    <%= link_to('Rent My Bike', new_bike_path, class: "navbar-wagon-item navbar-wagon-link")  %>
+    <%= link_to('My Bikes', offers_bikes_path, class: "navbar-wagon-item navbar-wagon-link")  %>
+    <%= link_to('Offer A Bike', new_bike_path, class: "navbar-wagon-item navbar-wagon-link")  %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
@@ -16,7 +17,6 @@
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
-          <li><%= link_to('My Bikes', offers_bikes_path, class: "navbar-wagon-item navbar-wagon-link")  %></li>
           <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </div>
