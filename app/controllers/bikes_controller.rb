@@ -44,7 +44,7 @@ class BikesController < ApplicationController
           end
       end
 
-            @bikes_with_coordinates = Bike.where.not(latitude: nil, longitude: nil)
+            @bikes_with_coordinates = @bikes.where.not(latitude: nil, longitude: nil)
             @hash = Gmaps4rails.build_markers(@bikes_with_coordinates) do |bike, marker|
               marker.lat bike.latitude
               marker.lng bike.longitude
