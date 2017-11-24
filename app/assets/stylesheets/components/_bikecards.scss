@@ -4,8 +4,8 @@
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
-  background-color: #F7F7F7;
-  box-shadow: 1px 1px #E9EAEA;
+  background-color: white;
+  margin-bottom: 50px;
   &:hover {
     background-color: #EBEBF3;
   }
@@ -20,6 +20,8 @@
   font-weight: bold;
   font-size: 23px;
   margin-top: 0;
+  color: $orange;
+  font-family: $body-font;
 }
 .bike-body p {
   font-weight: lighter;
