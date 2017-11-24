@@ -100,7 +100,7 @@ Bike.create!(
   start_date: '21-11-2017',
   end_date: '30-11-2017',
   user_id: users[2][:id],
-  photo_url: "https://static3.nordic.pictures/1172944-thickbox_default/girls-bicycle-disney-frozen-16-inch-volare.jpg"
+  photo_url: "https://www.raleigh.co.uk/media/catalog/product/r/a/raleigh_molli_moll16pk-9_1_1_1_1_1.jpg"
   # latitude: 52.506897,
   # longitude: 13.391423,
   )
