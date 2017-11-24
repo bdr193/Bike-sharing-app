@@ -1,24 +1,27 @@
-<h1 class="text-center">Give your bike a holiday!</h1>
+<div class="container note">
 
-<%= simple_form_for(@bike) do |f| %>
-<div class="form-container">
-  <div class="col-xs-12 col-md-6">
-    <%= f.input :name, label: "Title" %>
-    <%= f.input :address, label: "Give a collection point" %>
-    <%= f.input :description, label: "How would you describe your bike? (max 100 words)" %>
-    <%= f.input :city, label: "What city are you in?", collection: [ "Berlin", "Tel Aviv", "London", "Brussles"] %>
-    <%= f.input :price_by_day %>
+  <h1 class="text-center">Give your bike a break!</h1>
+
+  <%= simple_form_for(@bike) do |f| %>
+  <div class="form-container">
+    <div class="col-xs-12 col-md-6">
+      <%= f.input :name, label: "Title" %>
+      <%= f.input :address, label: "Give a collection point" %>
+      <%= f.input :description, label: "How would you describe your bike? (max 100 words)" %>
+      <%= f.input :city, label: "What city are you in?", collection: [ "Berlin", "Tel Aviv", "London", "Brussles"] %>
+      <%= f.input :price_by_day %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
+      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
+      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
+      <%= f.input :photo, as: :attachinary %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Submit", class: "btn btn-warning" %>
+      <%= link_to("Cancel", offers_bikes_path, class: "btn btn-warning") %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-xs-12 col-md-6">
-    <%= f.input :category, collection: [ "City Bike", "Mountain Bike", "Children Bike"] %>
-    <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'Start Date', label: 'Rent From' %>
-    <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: 'End Date', label: 'Rent Until' %>
-    <%= f.input :photo, as: :attachinary %>
-  </div>
-  <div class="text-center">
-  <%= f.submit "Submit", class: "btn btn-warning" %>
-  <%= link_to("Cancel", offers_bikes_path, class: "btn btn-warning") %>
-  <% end %>
-  </div>
+
 </div>
-

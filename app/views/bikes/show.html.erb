@@ -14,9 +14,9 @@
   </div>
   <div class="col-xs-12 col-md-6">
     <div class="bike-description text-left">
-      <h2><%= @bike.name %></h2>
+      <h2 class="show-name"><%= @bike.name %></h2>
       <p><%= @bike.category %></p>
-      <p><em><%= @bike.address %></em></p>
+      <p><%= @bike.address %></p>
       <%= render 'booking_form' %>
     </div>
   </div>
