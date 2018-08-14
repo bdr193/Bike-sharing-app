@@ -15,7 +15,7 @@ class BikesController < ApplicationController
     @lng = params[:bike][:lng] || session[:lat]
 
 
-    @bikes = Bike.near([@lat, @lng], 100)
+    # @bikes = Bike.near([@lat, @lng], 100)
     # removed it for testing purposes
     # @bikes = @bikes.where("start_date <= :start_date AND
     #   end_date >= :start_date AND
