@@ -16,12 +16,14 @@ class BikesController < ApplicationController
 
 
     @bikes = Bike.near([@lat, @lng], 100)
-    @bikes = @bikes.where("start_date <= :start_date AND
-      end_date >= :start_date AND
-      end_date >= :end_date",
-      {start_date: @start_date, end_date: @end_date})
+    # removed it for testing purposes
+    # @bikes = @bikes.where("start_date <= :start_date AND
+    #   end_date >= :start_date AND
+    #   end_date >= :end_date",
+    #   {start_date: @start_date, end_date: @end_date})
 
 
+      @bikes = @bikes.all
     if params[:bike][:category].present?
       @category = params[:bike][:category]
 
