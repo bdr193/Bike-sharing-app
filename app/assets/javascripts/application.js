@@ -9,8 +9,6 @@
 //= require gmaps/google
 //= require_tree .
 
-
-
 $('.datepicker').datepicker({
   format: 'yyyy-mm-dd',
   autoclose: true,
